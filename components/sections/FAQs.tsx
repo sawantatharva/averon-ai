@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+/* FAQ section + minimal vertical lighting */
 export default function FAQs({ id }: { id?: string }) {
   const faqs = [
     {
@@ -32,12 +33,7 @@ export default function FAQs({ id }: { id?: string }) {
       id={id}
       className="relative w-full py-28 md:py-32 bg-[#05070A] overflow-hidden"
     >
-      {/* -------------------------------------------------------
-         ULTRA CLEAN LIGHTING — UNIQUE TO FAQ
-         (Calm, minimal, no drama)
-      -------------------------------------------------------- */}
-
-      {/* Vertical soft wash (unique to FAQ) */}
+      {/* Lighting stack (FAQ-specific minimal wash) */}
       <div
         className="
           pointer-events-none absolute left-1/2 -translate-x-1/2 top-[5%]
@@ -46,7 +42,6 @@ export default function FAQs({ id }: { id?: string }) {
         "
       />
 
-      {/* Very subtle blue anchor at bottom right */}
       <div
         className="
           pointer-events-none absolute right-[-30%] bottom-[-20%]
@@ -55,7 +50,6 @@ export default function FAQs({ id }: { id?: string }) {
         "
       />
 
-      {/* Wide, low-contrast vignette */}
       <div
         className="
           pointer-events-none absolute bottom-[-40%] left-1/2 -translate-x-1/2
@@ -64,12 +58,10 @@ export default function FAQs({ id }: { id?: string }) {
         "
       />
 
-      {/* -------------------------------------------------------
-         CONTENT
-      -------------------------------------------------------- */}
+      {/* Content */}
       <div className="relative max-w-4xl mx-auto px-6">
 
-        {/* Heading */}
+        {/* Header */}
         <div className="text-center mb-14">
           <p className="font-body text-[#4DA3FF] text-sm tracking-[0.18em] uppercase mb-3">
             Need Answers?
@@ -80,7 +72,7 @@ export default function FAQs({ id }: { id?: string }) {
           </h2>
         </div>
 
-        {/* FAQ List */}
+        {/* Accordion */}
         <Accordion
           type="single"
           collapsible
@@ -100,8 +92,7 @@ export default function FAQs({ id }: { id?: string }) {
               <AccordionTrigger
                 className="
                   text-left text-lg md:text-xl text-white font-heading py-4
-                  hover:no-underline
-                  transition-colors
+                  hover:no-underline transition-colors
                   focus-visible:outline-none
                   data-[state=open]:text-[#4DA3FF]
                 "

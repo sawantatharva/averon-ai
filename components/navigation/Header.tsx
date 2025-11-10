@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 
+/* Site header + mobile drawer */
 export default function Header({ id }: { id?: string }) {
   const [open, setOpen] = useState(false);
 
+  /* Global nav index */
   const navItems = [
     { name: "Services", href: "#services" },
     { name: "Averon's Difference", href: "#difference" },
@@ -13,12 +15,14 @@ export default function Header({ id }: { id?: string }) {
     { name: "FAQs", href: "#faqs" },
   ];
 
+  /* Lock scroll when drawer is open */
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
   return (
     <>
+      {/* HEADER BAR */}
       <header
         className="
           fixed top-0 inset-x-0 z-1000
@@ -30,11 +34,7 @@ export default function Header({ id }: { id?: string }) {
           className="
             w-[92%] max-w-7xl mx-auto
             flex items-center justify-between
-            py-3          /* Smaller mobile height */
-            sm:py-4
-            md:py-5
-            lg:py-6
-            xl:py-8
+            py-3 sm:py-4 md:py-5 lg:py-6 xl:py-8
           "
         >
           {/* LOGO */}
@@ -42,18 +42,13 @@ export default function Header({ id }: { id?: string }) {
             src="logo.svg"
             alt="Averon AI"
             className="
-              h-8      /* mobile */
-              sm:h-9 
-              md:h-10 
-              lg:h-11 
-              xl:h-12
+              h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12
               w-auto transition-transform duration-300
               hover:scale-105 animate-scale-in
             "
           />
 
-          {/* Desktop NAV */}
-
+          {/* DESKTOP NAV */}
           <nav
             className="
               hidden xl:flex items-center gap-10
@@ -79,7 +74,7 @@ export default function Header({ id }: { id?: string }) {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* DESKTOP CTA */}
           <a
             href="#"
             className="
@@ -96,20 +91,16 @@ export default function Header({ id }: { id?: string }) {
             Book a Call →
           </a>
 
-          {/* MOBILE + TABLET MENU BUTTON */}
+          {/* MOBILE / TABLET MENU BTN */}
           <button
             onClick={() => setOpen(true)}
             className="
               xl:hidden 
-              h-9 w-9          /* Mobile */
-              sm:h-10 sm:w-10
-              md:h-11 md:w-11
-              lg:h-12 lg:w-12
+              h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 lg:h-12 lg:w-12
               rounded-lg bg-white/5 border border-white/10
               flex items-center justify-center
               text-white text-lg
-              active:scale-90 transition
-              animate-scale-in
+              active:scale-90 transition animate-scale-in
             "
             style={{ animationDelay: "0.6s" }}
           >
@@ -118,38 +109,34 @@ export default function Header({ id }: { id?: string }) {
         </div>
       </header>
 
-      {/* BACKDROP */}
+      {/* BACKDROP (Drawer Layer 1) */}
       <div
         className={`
-          fixed inset-0 bg-black/70 backdrop-blur-xl
-          transition-opacity duration-300 
-          ${open ? "opacity-100 pointer-events-auto z-2000" : "opacity-0 pointer-events-none"}
+          fixed inset-0 z-2000
+          bg-black/70 backdrop-blur-xl
+          transition-opacity duration-300
+          ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
         `}
         onClick={() => setOpen(false)}
       />
 
-      {/* MOBILE + TABLET PANEL */}
+      {/* MOBILE DRAWER (Layer 2) */}
       <aside
         className={`
-          fixed left-0 top-0 w-full 
+          fixed left-0 top-0 w-full z-3000
           bg-black/90 backdrop-blur-2xl border-b border-white/10
           transition-transform duration-300
-          ${open ? "translate-y-0 z-3000" : "-translate-y-full z-3000"}
-          
-          /* Mobile spacing */
+          ${open ? "translate-y-0" : "-translate-y-full"}
+
           pt-20 px-5 pb-6
-
-          /* Small Tablet */
           sm:pt-24 sm:px-7 sm:pb-10
-
-          /* Large Tablet */
           md:pt-28 md:px-10 md:pb-12
           lg:pt-32 lg:px-14 lg:pb-16
-          
+
           flex flex-col gap-6
         `}
       >
-        {/* CLOSE BUTTON */}
+        {/* CLOSE BTN */}
         <button
           onClick={() => setOpen(false)}
           className="
@@ -163,8 +150,8 @@ export default function Header({ id }: { id?: string }) {
           ✕
         </button>
 
-        {/* NAV LINKS */}
-        {navItems.map((item, i) => (
+        {/* MOBILE NAV ITEMS */}
+        {navItems.map((item) => (
           <a
             key={item.name}
             href={item.href}
@@ -180,12 +167,13 @@ export default function Header({ id }: { id?: string }) {
           </a>
         ))}
 
-        {/* CTA BUTTON */}
+        {/* DRAWER CTA */}
         <a
           href="#"
           className="
             mt-6 px-6 py-4 rounded-full text-center
-            bg-white/5 border border-white/10 text-white font-heading
+            bg-white/5 border border-white/10
+            text-white font-heading
             hover:bg-white/10 hover:scale-[1.03] transition
             text-base sm:text-lg md:text-xl
           "

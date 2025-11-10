@@ -8,8 +8,8 @@ import { useFrame } from "@react-three/fiber";
 
 type HeroModelProps = {
   scale?: number;
-  colorA?: string; // base color
-  colorB?: string; // soft emissive color
+  colorA?: string;   // base surface tone
+  colorB?: string;   // emissive accent tone
 };
 
 export default function HeroModel({
@@ -19,10 +19,10 @@ export default function HeroModel({
 }: HeroModelProps) {
   const group = useRef<Group>(null!);
 
-  // Make sure the file lives at /public/models/Brain.glb
+  /* GLTF asset (ensure /public/models/brain.glb exists) */
   const { scene } = useGLTF("/models/brain.glb");
 
-  // Apply a unified soft material (two-tone look via emissive)
+  /* Material override pass */
   useEffect(() => {
     scene.traverse((child) => {
       if ((child as Mesh).isMesh) {
@@ -33,20 +33,22 @@ export default function HeroModel({
           metalness: 0.15,
           roughness: 0.35,
         });
-        (child as Mesh).material = mat;
-        (child as Mesh).castShadow = false;
-        (child as Mesh).receiveShadow = false;
+
+        const mesh = child as Mesh;
+        mesh.material = mat;
+        mesh.castShadow = false;
+        mesh.receiveShadow = false;
       }
     });
   }, [scene, colorA, colorB]);
 
-  // Idle, subtle rotation
+  /* Idle rotation */
   useFrame((_, delta) => {
     if (!group.current) return;
     group.current.rotation.y += delta * 0.2;
   });
 
-  // Memo the scene so React doesn't reattach events/materials every render
+  /* Stabilize GLTF scene instance */
   const model = useMemo(() => scene, [scene]);
 
   return (
@@ -56,4 +58,5 @@ export default function HeroModel({
   );
 }
 
+/* Preload to avoid load-time pop-in */
 useGLTF.preload("/models/brain.glb");

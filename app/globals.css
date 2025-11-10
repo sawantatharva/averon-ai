@@ -1,5 +1,6 @@
 @import "tailwindcss" layer(base);
 
+/* Global layout constraints */
 html, body {
   overflow-x: hidden;
 }
@@ -8,7 +9,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* CONNECT Next.js fonts to Tailwind custom properties */
+/* Design tokens exposed as CSS variables */
 @layer theme {
   :root {
     font-family: var(--font-inter), sans-serif;
@@ -24,8 +25,9 @@ html {
   }
 }
 
-/* Custom utility classes */
+/* Custom utility extensions for project-specific typography, colors, and gradients */
 @layer utilities {
+  /* Typography families */
   .font-heading {
     font-family: var(--font-aeonik), sans-serif;
   }
@@ -34,40 +36,54 @@ html {
     font-family: var(--font-inter), sans-serif;
   }
 
+  /* Text colors */
   .text-blue-light { color: var(--color-blue-light); }
   .text-purple-dark { color: var(--color-purple-dark); }
   .text-purple-light { color: var(--color-purple-light); }
   .text-purple-soft { color: var(--color-purple-soft); }
   .text-purple-deep { color: var(--color-purple-deep); }
 
+  /* Background colors */
   .bg-blue-light { background-color: var(--color-blue-light); }
   .bg-purple-dark { background-color: var(--color-purple-dark); }
   .bg-purple-light { background-color: var(--color-purple-light); }
   .bg-purple-soft { background-color: var(--color-purple-soft); }
   .bg-purple-deep { background-color: var(--color-purple-deep); }
 
+  /* Border colors */
   .border-blue-light { border-color: var(--color-blue-light); }
   .border-purple-dark { border-color: var(--color-purple-dark); }
 
-  .gradient-hero { background: radial-gradient(circle at center, rgba(136, 110, 200, 0.35), transparent 70%); }
-  .gradient-primary { background: linear-gradient(135deg, var(--color-blue-light), var(--color-purple-dark)); }
+  /* Gradients */
+  .gradient-hero { 
+    background: radial-gradient(circle at center, rgba(136, 110, 200, 0.35), transparent 70%);
+  }
 
-  .gradient-soft { background: linear-gradient(180deg, var(--color-purple-soft), transparent); }
+  .gradient-primary { 
+    background: linear-gradient(135deg, var(--color-blue-light), var(--color-purple-dark));
+  }
 
+  .gradient-soft { 
+    background: linear-gradient(180deg, var(--color-purple-soft), transparent);
+  }
+
+  /* Gradient text utility */
   .text-gradient {
     background: linear-gradient(90deg, var(--color-blue-light), var(--color-purple-dark));
     -webkit-background-clip: text;
-    background-clip: text; /* adds standard version */
+    background-clip: text;
     color: transparent;
   }
 
+  /* Nav item style baseline */
   .nav-item {
     @apply text-white/70 hover:text-white transition text-[15px];
   }
 }
 
+/* Animation utilities for motion primitives */
 @layer utilities {
-
+  /* Keyframes */
   @keyframes fadeDown {
     0% { opacity: 0; transform: translateY(-12px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -88,6 +104,17 @@ html {
     100% { opacity: 1; }
   }
 
+  @keyframes slideInRight {
+    0% { transform: translateX(40px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideInUp {
+    0% { transform: translateY(16px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Animation utility classes */
   .animate-fade-down {
     animation: fadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
@@ -103,19 +130,6 @@ html {
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
-}
-
-@layer utilities {
-
-  @keyframes slideInRight {
-    0% { transform: translateX(40px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-
-  @keyframes slideInUp {
-    0% { transform: translateY(16px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
 
   .animate-slide-in-right {
     animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -125,25 +139,3 @@ html {
     animation: slideInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
-
-@layer utilities {
-
-  @keyframes slideInRight {
-    0% { transform: translateX(40px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-
-  @keyframes slideInUp {
-    0% { transform: translateY(16px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .animate-slide-in-up {
-    animation: slideInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-}
-

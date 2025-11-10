@@ -1,5 +1,6 @@
 "use client";
 
+/* How-It-Works section: step grid + directional lighting */
 export default function HowItWorks({ id }: { id?: string }) {
   const steps = [
     {
@@ -29,12 +30,8 @@ export default function HowItWorks({ id }: { id?: string }) {
       id={id}
       className="relative w-full py-28 md:py-32 bg-[#05070A] overflow-hidden"
     >
-      {/* -------------------------------------------------------
-         CINEMATIC LIGHTING — UNIQUE FOR THIS SECTION
-         (Low blue + high cool wash)
-      -------------------------------------------------------- */}
-
-      {/* Blue wash — very low right (calm, grounded) */}
+      {/* Lighting system (section-specific) */}
+      {/* Low right blue wash */}
       <div
         className="
           pointer-events-none absolute right-[-28%] bottom-[-5%]
@@ -43,7 +40,7 @@ export default function HowItWorks({ id }: { id?: string }) {
         "
       />
 
-      {/* Cool wash — high top-left (soft instructional mood) */}
+      {/* High left cool wash */}
       <div
         className="
           pointer-events-none absolute left-[-25%] top-[-10%]
@@ -52,7 +49,7 @@ export default function HowItWorks({ id }: { id?: string }) {
         "
       />
 
-      {/* Wide, deep vignette */}
+      {/* Deep bottom vignette */}
       <div
         className="
           pointer-events-none absolute bottom-[-40%] left-1/2 -translate-x-1/2
@@ -61,12 +58,10 @@ export default function HowItWorks({ id }: { id?: string }) {
         "
       />
 
-      {/* -------------------------------------------------------
-         CONTENT
-      -------------------------------------------------------- */}
+      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
 
-        {/* Section Heading */}
+        {/* Section header */}
         <div className="text-center mb-16">
           <p className="font-body text-[#4DA3FF] text-sm tracking-[0.18em] uppercase mb-4">
             Step-by-Step
@@ -77,20 +72,20 @@ export default function HowItWorks({ id }: { id?: string }) {
           </h2>
         </div>
 
-        {/* Steps Grid */}
+        {/* Steps grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {steps.map((step, i) => (
             <div
               key={i}
               className="
-                group relative p-8 rounded-3xl 
+                group relative p-8 rounded-3xl
                 bg-white/5 border border-white/10 backdrop-blur-xl
                 transition-all duration-300
                 hover:-translate-y-2 hover:bg-white/10 hover:border-white/20
                 shadow-[0_0_40px_-15px_rgba(0,0,0,0.5)]
               "
             >
-              {/* Hover glow — clean blue only */}
+              {/* Hover glow */}
               <div
                 className="
                   absolute -top-10 -right-10 w-40 h-40 rounded-full
@@ -100,20 +95,24 @@ export default function HowItWorks({ id }: { id?: string }) {
                 "
               />
 
+              {/* Step number */}
               <span className="font-heading text-[26px] text-[#4DA3FF] block mb-4">
                 {step.num}
               </span>
 
+              {/* Title */}
               <h3 className="text-xl md:text-[22px] font-heading text-white mb-3">
                 {step.title}
               </h3>
 
+              {/* Description */}
               <p className="font-body text-white/65 leading-relaxed text-[15px]">
                 {step.desc}
               </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

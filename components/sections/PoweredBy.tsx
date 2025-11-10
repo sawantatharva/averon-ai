@@ -1,5 +1,6 @@
 "use client";
 
+/* Partner/logo drift marquee */
 export default function PoweredBy({ id }: { id?: string }) {
   const logos = [
     "/images/openai.svg",
@@ -17,28 +18,16 @@ export default function PoweredBy({ id }: { id?: string }) {
       id={id}
       className="relative w-full py-12 sm:py-20 bg-[#05070A] overflow-hidden"
     >
-      {/* ─────────────────────────────────────────────
-          PREMIUM SUBTLE LIGHTING FOR META SECTIONS
-      ───────────────────────────────────────────── */}
-
-      {/* Soft ambient blue wash 
-          - Centered on mobile (left-1/2 -translate-x-1/2)
-          - Moves to the side on larger screens (lg:left-[20%] lg:-translate-x-0)
-          - Uses responsive width (w-full lg:w-[900px])
-      */}
+      {/* Gradient stack (section lighting) */}
       <div
         className="
           pointer-events-none absolute left-1/2 -translate-x-1/2 top-[5%]
-          w-full h-[900px] max-w-[900px]
-          lg:left-[20%] lg:-translate-x-0 lg:w-[900px]
+          w-full max-w-[900px] h-[900px]
+          lg:left-[20%] lg:translate-x-0 lg:w-[900px]
           bg-[#4DA3FF]/6 blur-[260px]
         "
       />
 
-      {/* Very faint vignette for depth
-          - Uses responsive percentage-based width (w-[150%])
-          - Capped with a max-width (max-w-[1500px])
-      */}
       <div
         className="
           pointer-events-none absolute bottom-[-30%] left-1/2 -translate-x-1/2
@@ -47,32 +36,31 @@ export default function PoweredBy({ id }: { id?: string }) {
         "
       />
 
-      {/* Center label */}
-      <div className="relative text-center mb-12 px-4">
+      {/* Section label */}
+      <div className="relative text-center mb-8 px-4">
         <p className="text-white text-sm sm:text-base font-heading tracking-wide max-w-lg mx-auto">
           Powered by the world’s leading AI Models & Automation Platforms
         </p>
       </div>
 
-      {/* Drift wrapper */}
+      {/* Drift marquee */}
       <div className="relative w-full overflow-hidden pt-6">
         <div
           className="flex items-center gap-12 sm:gap-16 md:gap-20 animate-drift"
-          style={{ width: "200%" }}
+          style={{ width: "200%" }} /* loop track */
         >
-          {/* We duplicate the logos array for a seamless loop */}
+          {/* Duplicate logo list for seamless wrap-around */}
           {logos.concat(logos).map((src, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex items-center justify-center h-6 sm:h-7 md:h-8 lg:h-9"
+              className="shrink-0 flex items-center justify-center h-6 sm:h-7 md:h-8 lg:h-9"
             >
               <img
                 src={src}
-                alt="" // Alt text can be added if logos are descriptive (e.g., "OpenAI logo")
+                alt=""
                 className="
                   max-h-full w-auto opacity-60
-                  transition-all duration-300
-                  hover:opacity-100
+                  transition-all duration-300 hover:opacity-100
                 "
               />
             </div>
@@ -80,9 +68,7 @@ export default function PoweredBy({ id }: { id?: string }) {
         </div>
       </div>
 
-      {/* The animation is defined here.
-        - I've slightly increased the speed (30s from 38s) for a more dynamic feel.
-      */}
+      {/* Local drift animation */}
       <style>
         {`
           @keyframes drift {

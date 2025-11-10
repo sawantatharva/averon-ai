@@ -1,16 +1,14 @@
 import Link from "next/link";
 
+/* CTA section: focused lighting + centered conversion block */
 export default function CTA({ id }: { id?: string }) {
   return (
     <section
       id={id}
       className="relative py-28 md:py-32 bg-[#05070A] overflow-hidden text-center"
     >
-      {/* -------------------------------------------------------
-         UNIQUE CTA LIGHTING — FOCUSED, HEROIC
-      -------------------------------------------------------- */}
-
-      {/* 1. Strong center spotlight (primary focal beam) */}
+      {/* Lighting stack (CTA-specific focal composition) */}
+      {/* Center spotlight */}
       <div
         className="
           pointer-events-none absolute top-[15%] left-1/2 -translate-x-1/2
@@ -19,7 +17,7 @@ export default function CTA({ id }: { id?: string }) {
         "
       />
 
-      {/* 2. Blue anchor glow — very low & wide */}
+      {/* Low blue anchor */}
       <div
         className="
           pointer-events-none absolute bottom-[-25%] left-1/2 -translate-x-1/2
@@ -28,7 +26,7 @@ export default function CTA({ id }: { id?: string }) {
         "
       />
 
-      {/* 3. Top vignette — unique to CTA */}
+      {/* Upper vignette */}
       <div
         className="
           pointer-events-none absolute top-[-40%] left-1/2 -translate-x-1/2
@@ -37,11 +35,9 @@ export default function CTA({ id }: { id?: string }) {
         "
       />
 
-      {/* -------------------------------------------------------
-         CONTENT
-      -------------------------------------------------------- */}
+      {/* Content */}
       <div className="relative max-w-3xl mx-auto px-6">
-        
+
         {/* Heading */}
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-6">
           Ready to scale with AI?
@@ -52,7 +48,7 @@ export default function CTA({ id }: { id?: string }) {
           Automate workflows. Increase conversions. Grow autonomously — powered by AI systems built around your business.
         </p>
 
-        {/* CTA Button */}
+        {/* CTA button */}
         <Link
           href="#call"
           className="

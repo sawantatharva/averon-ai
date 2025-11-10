@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 
+/* Difference section: tabbed feature blocks + gradient lighting */
 export default function Difference({ id }: { id?: string }) {
   const items = [
     {
@@ -64,6 +65,7 @@ export default function Difference({ id }: { id?: string }) {
     },
   ];
 
+  /* Active tab */
   const [active, setActive] = useState(items[0].key);
   const selected = items.find((i) => i.key === active)!;
 
@@ -72,27 +74,30 @@ export default function Difference({ id }: { id?: string }) {
       id={id}
       className="relative w-full bg-[#05070A] text-white py-28 overflow-hidden"
     >
-      {/* Lighting */}
+      {/* Gradient + lighting stack */}
       <div className="pointer-events-none absolute left-[5%] top-[5%] w-[1100px] h-[1100px] bg-[#0F1A2E]/7 blur-[300px]" />
-      <div className="pointer-events-none absolute right-[0%] bottom-[-20%] w-[1300px] h-[1300px] bg-[#4DA3FF]/10 blur-[320px]" />
+      <div className="pointer-events-none absolute right-0 bottom-[-20%] w-[1300px] h-[1300px] bg-[#4DA3FF]/10 blur-[320px]" />
       <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-[20%] w-[900px] h-[1600px] bg-white/5 blur-[260px]" />
 
-      {/* Heading */}
+      {/* Section header */}
       <div className="relative max-w-3xl mx-auto text-center px-6 mb-20">
         <p className="font-body text-[#4DA3FF] tracking-[0.18em] uppercase text-sm mb-3">
           Why Choose Averon
         </p>
+
         <h2 className="font-heading text-4xl md:text-5xl tracking-tight">
           Averon’s Difference
         </h2>
+
         <p className="font-body text-lg text-white/70 mt-4">
           Our systems aren’t plug-and-play scripts — they’re tailored intelligence built for your exact workflow.
         </p>
       </div>
 
-      {/* Split layout */}
+      {/* Main layout: tabs + detail panel */}
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 px-6">
-        {/* Left: Tabs */}
+
+        {/* Left: tab list */}
         <div className="flex flex-col gap-3">
           {items.map((item) => {
             const isActive = item.key === active;
@@ -113,13 +118,12 @@ export default function Difference({ id }: { id?: string }) {
           })}
         </div>
 
-        {/* RIGHT — DETAIL PANEL */}
-
+        {/* Right: detail panel */}
         <div
           key={selected.key}
           className="
-            relative p-8 md:p-10 rounded-3xl 
-            bg-white/5 border border-white/10 
+            relative p-8 md:p-10 rounded-3xl
+            bg-white/5 border border-white/10
             backdrop-blur-xl shadow-[0_0_40px_-20px_rgba(0,0,0,0.45)]
             flex flex-col
           "
@@ -144,7 +148,7 @@ export default function Difference({ id }: { id?: string }) {
             {selected.desc}
           </p>
 
-          {/* Bullets */}
+          {/* Bullet list */}
           <ul className="space-y-2">
             {selected.bullets.map((b, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -160,21 +164,21 @@ export default function Difference({ id }: { id?: string }) {
           <div className="mt-6">
             <span
               className="
-                inline-flex items-center gap-1.5 rounded-full border 
+                inline-flex items-center gap-1.5 rounded-full border
                 px-3.5 py-1.5 text-[13px] font-body
                 bg-emerald-500/10 text-emerald-300 border-emerald-400/25
               "
             >
-              <svg viewBox='0 0 24 24' className='h-3.5 w-3.5'>
-                <path d='M12 4l6 6h-4v8h-4v-8H6l6-6z' fill='currentColor' />
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5">
+                <path d="M12 4l6 6h-4v8h-4v-8H6l6-6z" fill="currentColor" />
               </svg>
               {selected.stat}
             </span>
           </div>
         </div>
-      </div>    
+      </div>
 
-      {/* Stats strip */}
+      {/* Stats row */}
       <div className="relative max-w-7xl mx-auto mt-8 px-6">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
@@ -185,7 +189,11 @@ export default function Difference({ id }: { id?: string }) {
           ].map((s) => (
             <div
               key={s.k}
-              className="rounded-full border border-white/10 bg-white/4 px-6 py-3 text-center font-body text-sm text-white/80"
+              className="
+                rounded-full border border-white/10
+                bg-white/4 px-6 py-3 text-center
+                font-body text-sm text-white/80
+              "
             >
               <span className="text-white/60">{s.k}:</span>{" "}
               <span className="text-white">{s.v}</span>

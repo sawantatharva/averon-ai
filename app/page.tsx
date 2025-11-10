@@ -1,20 +1,22 @@
 import Header from "@/components/navigation/Header";
 import Hero from "@/components/sections/Hero";
 import PoweredBy from "@/components/sections/PoweredBy";
+import AboutUs from "@/components/sections/AboutUs";
 import Services from "@/components/sections/Services";
 import Difference from "@/components/sections/Difference";
 import HowItWorks from "@/components/sections/HowItWorks";
 import FAQs from "@/components/sections/FAQs";
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/sections/Footer";
-import AboutUs from "@/components/sections/AboutUs";
 import BackToTop from "@/components/ui/BackToTop";
 
+/* Main landing page composition */
 export default function Home() {
   return (
     <main className="bg-black text-white w-full overflow-x-hidden">
       <Header />
 
+      {/* Section anchors */}
       <div id="hero">
         <Hero />
       </div>

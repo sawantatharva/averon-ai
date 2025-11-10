@@ -1,5 +1,6 @@
 "use client";
 
+/* Services section + diagonal lighting system */
 export default function Services({ id }: { id?: string }) {
   const services = [
     {
@@ -29,11 +30,8 @@ export default function Services({ id }: { id?: string }) {
       id={id}
       className="relative w-full py-28 bg-[#05070A] overflow-hidden"
     >
-      {/* -------------------------------------------------------
-         CINEMATIC LIGHTING — UNIQUE FOR SERVICES (DIAGONAL)
-      -------------------------------------------------------- */}
-
-      {/* Blue glow — high top-right (energetic, directional) */}
+      {/* Lighting stack (section-unique diagonal composition) */}
+      {/* Top-right blue wash */}
       <div
         className="
           pointer-events-none absolute right-[-30%] top-[-5%]
@@ -42,7 +40,7 @@ export default function Services({ id }: { id?: string }) {
         "
       />
 
-      {/* Cool wash — low bottom-left (cross-light) */}
+      {/* Bottom-left cool wash */}
       <div
         className="
           pointer-events-none absolute left-[-28%] bottom-[-5%]
@@ -51,7 +49,7 @@ export default function Services({ id }: { id?: string }) {
         "
       />
 
-      {/* Bottom vignette — deeper for card contrast */}
+      {/* Deep vignette for card contrast */}
       <div
         className="
           pointer-events-none absolute bottom-[-40%] left-1/2 -translate-x-1/2
@@ -59,10 +57,6 @@ export default function Services({ id }: { id?: string }) {
           bg-black/50 blur-[360px]
         "
       />
-
-      {/* -------------------------------------------------------
-         CONTENT
-      -------------------------------------------------------- */}
 
       {/* Header */}
       <div className="relative text-center mb-20 px-6">
@@ -79,10 +73,10 @@ export default function Services({ id }: { id?: string }) {
         </p>
       </div>
 
-      {/* Services Grid */}
+      {/* Services grid */}
       <div
         className="
-          relative max-w-7xl mx-auto 
+          relative max-w-7xl mx-auto
           grid grid-cols-1 md:grid-cols-2 gap-10 px-6
         "
       >
@@ -90,18 +84,17 @@ export default function Services({ id }: { id?: string }) {
           <div
             key={i}
             className="
-              relative group p-10 rounded-3xl 
+              relative group p-10 rounded-3xl
               bg-white/5 border border-white/10 backdrop-blur-xl
               transition-all duration-300
-              hover:bg-white/10 hover:border-white/20 
-              hover:-translate-y-2
+              hover:bg-white/10 hover:border-white/20 hover:-translate-y-2
               shadow-[0_0_50px_-15px_rgba(0,0,0,0.5)]
             "
           >
-            {/* Hover Glow */}
+            {/* Hover light accents */}
             <div
               className="
-                absolute inset-0 opacity-0 group-hover:opacity-100 
+                absolute inset-0 opacity-0 group-hover:opacity-100
                 transition-all duration-500 pointer-events-none
               "
             >
@@ -125,7 +118,7 @@ export default function Services({ id }: { id?: string }) {
             <div
               className="
                 relative z-2
-                w-14 h-14 mb-6 
+                w-14 h-14 mb-6
                 rounded-2xl flex items-center justify-center
                 bg-white/10 border border-white/10 backdrop-blur-xl
                 group-hover:scale-105 transition-transform

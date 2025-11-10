@@ -146,7 +146,7 @@ export default function Hero({ id }: { id?: string }) {
         <div
           className="
             relative w-full
-            h-[260px] sm:h-[320px] md:h-[420px] 
+            h-[260px] sm:h-80 md:h-[420px] 
             lg:h-[460px] xl:h-[560px]          /* ✅ FIXED */
             max-w-[620px] mx-auto
           "

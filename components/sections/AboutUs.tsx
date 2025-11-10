@@ -1,20 +1,17 @@
 "use client";
 
+/* About section container + section-level gradient system */
 export default function About({ id }: { id?: string }) {
   return (
     <section
       id="about"
       className="relative w-full py-32 bg-[#05070A] overflow-hidden"
     >
-      {/* BASE */}
+      {/* Base layer */}
       <div className="absolute inset-0 bg-[#05070A]" />
 
-      {/* -------------------------------------------------------
-         UNIQUE GRADIENT COMPOSITION FOR ABOUT SECTION
-         (Left-heavy, editorial, non-repetitive)
-      -------------------------------------------------------- */}
-
-      {/* 1. Cool wash — high top-left (dominant for this section) */}
+      {/* Gradient stack (section lighting) */}
+      {/* Left-wash primary */}
       <div
         className="
           pointer-events-none absolute left-[-25%] top-[-5%]
@@ -23,16 +20,16 @@ export default function About({ id }: { id?: string }) {
         "
       />
 
-      {/* 2. Blue ambient — low right (inverted from other sections) */}
+      {/* Right ambient tint */}
       <div
         className="
-          pointer-events-none absolute right-[-20%] bottom-[0%]
+          pointer-events-none absolute right-[-20%] bottom-0
           w-[1200px] h-[1200px]
           bg-[#4DA3FF]/8 blur-[300px]
         "
       />
 
-      {/* 3. Soft bottom vignette — slightly lighter than other sections */}
+      {/* Bottom vignette */}
       <div
         className="
           pointer-events-none absolute bottom-[-30%] left-1/2 -translate-x-1/2
@@ -41,10 +38,10 @@ export default function About({ id }: { id?: string }) {
         "
       />
 
-      {/* CONTENT */}
+      {/* Content */}
       <div className="relative max-w-6xl mx-auto px-6">
 
-        {/* Header */}
+        {/* Section header */}
         <div className="mb-14">
           <p className="font-body text-[#4DA3FF] text-sm tracking-[0.18em] uppercase mb-3">
             Who We Are
@@ -55,7 +52,7 @@ export default function About({ id }: { id?: string }) {
           </h2>
         </div>
 
-        {/* Description Box */}
+        {/* Description card */}
         <div
           className="
             bg-white/5 border border-white/10 backdrop-blur-xl
@@ -66,23 +63,23 @@ export default function About({ id }: { id?: string }) {
           "
         >
           <p className="font-body text-white/70 text-lg md:text-xl leading-relaxed">
-            Averon AI builds personalised AI systems designed around how 
-            <strong> your </strong> business actually works — not generic templates. 
-            We automate workflows, enable AI assistants, and streamline operations 
+            Averon AI builds personalised AI systems designed around how
+            <strong> your </strong> business actually works — not generic templates.
+            We automate workflows, enable AI assistants, and streamline operations
             so your team can work smarter, faster, and with less manual effort.
           </p>
 
-          {/* Values */}
+          {/* Values grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-14">
 
             {/* Item */}
             <div className="text-center group">
               <div
                 className="
-                  mx-auto w-16 h-16 flex items-center justify-center 
+                  mx-auto w-16 h-16 flex items-center justify-center
                   rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl
                   shadow-[0_0_25px_rgba(77,163,255,0.12)]
-                  transition-all duration-300 
+                  transition-all duration-300
                   group-hover:bg-white/10 group-hover:border-white/20
                 "
               >
@@ -101,10 +98,10 @@ export default function About({ id }: { id?: string }) {
             <div className="text-center group">
               <div
                 className="
-                  mx-auto w-16 h-16 flex items-center justify-center 
+                  mx-auto w-16 h-16 flex items-center justify-center
                   rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl
                   shadow-[0_0_25px_rgba(77,163,255,0.12)]
-                  transition-all duration-300 
+                  transition-all duration-300
                   group-hover:bg-white/10 group-hover:border-white/20
                 "
               >
@@ -123,10 +120,10 @@ export default function About({ id }: { id?: string }) {
             <div className="text-center group">
               <div
                 className="
-                  mx-auto w-16 h-16 flex items-center justify-center 
+                  mx-auto w-16 h-16 flex items-center justify-center
                   rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl
                   shadow-[0_0_25px_rgba(77,163,255,0.12)]
-                  transition-all duration-300 
+                  transition-all duration-300
                   group-hover:bg-white/10 group-hover:border-white/20
                 "
               >

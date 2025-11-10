@@ -1,10 +1,11 @@
+/* Footer: low-noise layout + minimal contact block */
 export default function Footer({ id }: { id?: string }) {
   return (
     <footer
       id={id}
       className="relative bg-[#05070A] border-t border-white/10 py-20 overflow-hidden"
     >
-      {/* Subtle bottom vignette */}
+      {/* Lighting layer (vignette only) */}
       <div className="pointer-events-none absolute inset-0">
         <div
           className="
@@ -15,13 +16,13 @@ export default function Footer({ id }: { id?: string }) {
         />
       </div>
 
-      {/* CONTENT */}
+      {/* Content container */}
       <div className="relative max-w-7xl mx-auto px-6">
 
-        {/* TOP ROW */}
+        {/* Top row: logo + links */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
 
-          {/* Logo */}
+          {/* Brand */}
           <div className="flex items-center gap-3">
             <img
               src="/logo.svg"
@@ -30,7 +31,7 @@ export default function Footer({ id }: { id?: string }) {
             />
           </div>
 
-          {/* Navigation */}
+          {/* Legal nav */}
           <div className="flex flex-wrap gap-6 text-white/60 font-body text-base">
             <a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a>
             <a href="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</a>
@@ -40,10 +41,10 @@ export default function Footer({ id }: { id?: string }) {
         {/* Divider */}
         <div className="h-px bg-white/10 my-12" />
 
-        {/* CONTACT SECTION */}
+        {/* Contact block */}
         <div className="flex flex-col gap-5 text-white/70 font-body text-sm mb-12">
 
-          {/* Phone Numbers */}
+          {/* Phone list */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-8 gap-3">
             <div className="flex items-center gap-2">
               <img src="/icons/phone.svg" className="h-4 w-4 opacity-80" />
@@ -71,7 +72,7 @@ export default function Footer({ id }: { id?: string }) {
           </div>
         </div>
 
-        {/* BOTTOM ROW */}
+        {/* Bottom row: copyright */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <p className="text-white/50 font-body text-sm">
             © {new Date().getFullYear()} Averon AI. All rights reserved.
