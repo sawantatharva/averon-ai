@@ -5,7 +5,7 @@ export default function About({ id }: { id?: string }) {
   return (
     <section
       id="about"
-      className="relative w-full py-32 bg-[#05070A] overflow-hidden"
+      className="relative w-full py-16 bg-[#05070A] overflow-hidden"
     >
       {/* Base layer */}
       <div className="absolute inset-0 bg-[#05070A]" />

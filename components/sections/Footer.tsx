@@ -3,7 +3,7 @@ export default function Footer({ id }: { id?: string }) {
   return (
     <footer
       id={id}
-      className="relative bg-[#05070A] border-t border-white/10 py-20 overflow-hidden"
+      className="relative bg-[#05070A] border-t border-white/10 py-10 overflow-hidden"
     >
       {/* Lighting layer (vignette only) */}
       <div className="pointer-events-none absolute inset-0">

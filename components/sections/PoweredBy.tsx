@@ -16,7 +16,7 @@ export default function PoweredBy({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative w-full py-12 sm:py-20 bg-[#05070A] overflow-hidden"
+      className="relative w-full py-6 sm:py-20 bg-[#05070A] overflow-hidden"
     >
       {/* Gradient stack (section lighting) */}
       <div

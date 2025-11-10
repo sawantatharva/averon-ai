@@ -72,7 +72,7 @@ export default function Difference({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative w-full bg-[#05070A] text-white py-28 overflow-hidden"
+      className="relative w-full bg-[#05070A] text-white py-14 overflow-hidden"
     >
       {/* Gradient + lighting stack */}
       <div className="pointer-events-none absolute left-[5%] top-[5%] w-[1100px] h-[1100px] bg-[#0F1A2E]/7 blur-[300px]" />

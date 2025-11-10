@@ -5,7 +5,7 @@ export default function CTA({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative py-28 md:py-32 bg-[#05070A] overflow-hidden text-center"
+      className="relative py-14 md:py-16 bg-[#05070A] overflow-hidden text-center"
     >
       {/* Lighting stack (CTA-specific focal composition) */}
       {/* Center spotlight */}

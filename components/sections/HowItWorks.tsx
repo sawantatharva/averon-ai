@@ -28,7 +28,7 @@ export default function HowItWorks({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative w-full py-28 md:py-32 bg-[#05070A] overflow-hidden"
+      className="relative w-full py-14 md:py-16 bg-[#05070A] overflow-hidden"
     >
       {/* Lighting system (section-specific) */}
       {/* Low right blue wash */}
