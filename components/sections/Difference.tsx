@@ -1,137 +1,181 @@
 "use client";
 
-import React from "react";
-
-const ICON_COLOR = "#4DA3FF";
+import React, { useState } from "react";
 
 export default function Difference({ id }: { id?: string }) {
-  const edges = [
-    { title: "AI at the Core", desc: "Intelligence that learns and evolves with your workflow." },
-    { title: "Effortless Automation", desc: "Smart, invisible automations that eliminate manual work." },
-    { title: "Scalable Intelligence", desc: "Precision and reliability even as complexity grows." },
-    { title: "Seamless Integration", desc: "Connects directly into your stack without disruption." },
-    { title: "Data-Driven Clarity", desc: "Turns messy data into confident, fast decisions." },
-    { title: "Intelligence + Intuition", desc: "Human vision amplified by AI precision." },
+  const items = [
+    {
+      key: "core",
+      title: "AI at the Core",
+      subtitle: "Adaptive intelligence as the foundation.",
+      desc: "Averon embeds intelligence into your workflow — evolving as you grow.",
+      icon: "/icons/core.svg",
+      bullets: [
+        "Learns from real usage patterns",
+        "Improves accuracy over time",
+        "Reduces manual correction dramatically",
+      ],
+      stat: "Up to 60% fewer repetitive decisions",
+    },
+    {
+      key: "auto",
+      title: "Effortless Automation",
+      subtitle: "Automations that feel invisible.",
+      desc: "Your tasks execute themselves — quietly, accurately, and without friction.",
+      icon: "/icons/automate.svg",
+      bullets: ["Removes repetitive tasks", "Works across all tools", "Runs 24/7 without errors"],
+      stat: "Up to 10× faster operations",
+    },
+    {
+      key: "scale",
+      title: "Scalable Intelligence",
+      subtitle: "Built to handle growth instantly.",
+      desc: "Your system performs the same on day 1 and day 1000 — even under scale.",
+      icon: "/icons/scale.svg",
+      bullets: ["Handles high volume data", "Predictable performance", "Zero bottleneck architecture"],
+      stat: "99.5% stability at scale",
+    },
+    {
+      key: "integrate",
+      title: "Seamless Integration",
+      subtitle: "Fits your stack, not the other way around.",
+      desc: "Averon connects deeply into your tools, platforms, and internal systems.",
+      icon: "/icons/integrate.svg",
+      bullets: ["CRM, sheets, messaging", "APIs, internal databases", "Two-way sync everywhere"],
+      stat: "Integrates with 450+ tools",
+    },
+    {
+      key: "data",
+      title: "Data-Driven Clarity",
+      subtitle: "Your decisions, enhanced by insight.",
+      desc: "Messy data becomes actionable insight — instantly usable in workflows.",
+      icon: "/icons/data.svg",
+      bullets: ["Real-time understanding", "Highlight key actions", "Eliminate blind spots"],
+      stat: "Decisions 40% faster",
+    },
+    {
+      key: "intuition",
+      title: "Intelligence + Intuition",
+      subtitle: "Human creativity × AI precision.",
+      desc: "Your vision + AI's intelligence = workflows that feel effortless and intuitive.",
+      icon: "/icons/chart.svg",
+      bullets: ["Human-based guardrails", "Adaptive behavior", "Personalised responses"],
+      stat: "User satisfaction ↑ significantly",
+    },
   ];
+
+  const [active, setActive] = useState(items[0].key);
+  const selected = items.find((i) => i.key === active)!;
 
   return (
     <section
       id={id}
       className="relative w-full bg-[#05070A] text-white py-28 overflow-hidden"
     >
-      {/* -------------------------------------------------------
-          UNIQUE LIGHTING FOR THIS SECTION
-          (CENTER-BIASED, AUTHORITATIVE, NON-REPEATING)
-      -------------------------------------------------------- */}
+      {/* Lighting */}
+      <div className="pointer-events-none absolute left-[5%] top-[5%] w-[1100px] h-[1100px] bg-[#0F1A2E]/7 blur-[300px]" />
+      <div className="pointer-events-none absolute right-[0%] bottom-[-20%] w-[1300px] h-[1300px] bg-[#4DA3FF]/10 blur-[320px]" />
+      <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-[20%] w-[900px] h-[1600px] bg-white/5 blur-[260px]" />
 
-      {/* Cool wash — high left/center */}
-      <div
-        className="
-          pointer-events-none absolute left-[5%] top-[-20%]
-          w-[1200px] h-[1200px]
-          bg-[#0F1A2E]/7 blur-[320px]
-        "
-      />
-
-      {/* Blue ambient — low right/center (inverted vs other sections) */}
-      <div
-        className="
-          pointer-events-none absolute right-[0%] bottom-[-25%]
-          w-[1300px] h-[1300px]
-          bg-[#4DA3FF]/9 blur-[320px]
-        "
-      />
-
-      {/* Vertical lavender wash — only used here */}
-      <div
-        className="
-          pointer-events-none absolute left-1/2 -translate-x-1/2 top-[10%]
-          w-[900px] h-[1600px]
-          bg-[#F4F0FF]/6 blur-[260px]
-        "
-      />
-
-      {/* Top vignette — unique subtle fade */}
-      <div
-        className="
-          pointer-events-none absolute top-[-40%] left-1/2 -translate-x-1/2
-          w-[1600px] h-[1000px]
-          bg-black/40 blur-[320px]
-        "
-      />
-
-      {/* -------------------------------------------------------
-          HEADING
-      -------------------------------------------------------- */}
-      <div className="relative max-w-3xl mx-auto text-center px-6 mb-16">
-        <p className="font-body text-[#4DA3FF] tracking-[0.18em] uppercase text-sm mb-2">
+      {/* Heading */}
+      <div className="relative max-w-3xl mx-auto text-center px-6 mb-20">
+        <p className="font-body text-[#4DA3FF] tracking-[0.18em] uppercase text-sm mb-3">
           Why Choose Averon
         </p>
-
         <h2 className="font-heading text-4xl md:text-5xl tracking-tight">
           Averon’s Difference
         </h2>
-
         <p className="font-body text-white/70 mt-4">
-          Our systems aren’t plug-and-play scripts — they’re tailored intelligence built for your exact workflow.
+          Not templated automations — intelligent systems engineered specifically for your workflow.
         </p>
       </div>
 
-      {/* -------------------------------------------------------
-          GRID
-      -------------------------------------------------------- */}
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
-        {edges.map(({ title, desc }) => (
-          <article
-            key={title}
-            className="
-              group relative rounded-3xl p-7 sm:p-8
-              bg-white/5 border border-white/10 backdrop-blur-xl
-              transition-all duration-300
-              hover:-translate-y-1.5 hover:bg-white/10 hover:border-white/20
-              shadow-[0_0_40px_-10px_rgba(0,0,0,0.45)]
-            "
-          >
-            {/* Hover Glow */}
-            <div
-              className="
-                absolute -top-10 -right-10 w-40 h-40 rounded-full
-                bg-[#4DA3FF]/22 blur-[90px]
-                opacity-0 group-hover:opacity-100 transition-opacity
-              "
-            />
-
-            <div className="flex items-start gap-4">
-              <div
-                className="
-                  shrink-0 grid place-items-center
-                  h-12 w-12 rounded-2xl
-                  bg-white/5 border border-white/10
-                "
-                style={{ color: ICON_COLOR }}
+      {/* Split layout */}
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 px-6">
+        {/* Left: Tabs */}
+        <div className="flex flex-col gap-3">
+          {items.map((item) => {
+            const isActive = item.key === active;
+            return (
+              <button
+                key={item.key}
+                onClick={() => setActive(item.key)}
+                className={[
+                  "text-left px-6 py-4 rounded-2xl font-heading transition-all border backdrop-blur-xl",
+                  isActive
+                    ? "border-[#4DA3FF]/40 bg-[#4DA3FF]/10 text-[#4DA3FF] shadow-[0_0_25px_rgba(77,163,255,0.20)] ring-1 ring-[#4DA3FF]/30"
+                    : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10 hover:border-white/20",
+                ].join(" ")}
               >
-                <div className="h-6 w-6 rounded-full bg-[#4DA3FF]/90" />
-              </div>
+                {item.title}
+              </button>
+            );
+          })}
+        </div>
 
-              <div>
-                <h3 className="font-heading text-xl md:text-[22px]">
-                  {title}
-                </h3>
-                <p className="font-body text-white/65 mt-2 leading-relaxed">
-                  {desc}
-                </p>
-              </div>
-            </div>
+        {/* RIGHT — DETAIL PANEL */}
 
-            <div className="mt-6 h-px bg-linear-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          </article>
-        ))}
-      </div>
+        <div
+          key={selected.key}
+          className="
+            relative p-8 md:p-10 rounded-3xl 
+            bg-white/5 border border-white/10 
+            backdrop-blur-xl shadow-[0_0_40px_-20px_rgba(0,0,0,0.45)]
+            flex flex-col
+          "
+        >
+          {/* Icon */}
+          <div className="mb-5 w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center">
+            <img src={selected.icon} className="w-7" />
+          </div>
 
-      {/* -------------------------------------------------------
-          STATS
-      -------------------------------------------------------- */}
-      <div className="relative max-w-7xl mx-auto mt-14 px-6">
+          {/* Title */}
+          <h3 className="font-heading text-[24px] md:text-[28px] text-white mb-1">
+            {selected.title}
+          </h3>
+
+          {/* Subtitle */}
+          <p className="font-body text-[#4DA3FF] text-[14px] mb-4">
+            {selected.subtitle}
+          </p>
+
+          {/* Description */}
+          <p className="font-body text-white/70 text-[14px] leading-[1.45] mb-5">
+            {selected.desc}
+          </p>
+
+          {/* Bullets */}
+          <ul className="space-y-2">
+            {selected.bullets.map((b, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-[#4DA3FF]" />
+                <span className="font-body text-white/85 text-[14px] leading-[1.4]">
+                  {b}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* KPI */}
+          <div className="mt-6">
+            <span
+              className="
+                inline-flex items-center gap-1.5 rounded-full border 
+                px-3.5 py-1.5 text-[13px] font-body
+                bg-emerald-500/10 text-emerald-300 border-emerald-400/25
+              "
+            >
+              <svg viewBox='0 0 24 24' className='h-3.5 w-3.5'>
+                <path d='M12 4l6 6h-4v8h-4v-8H6l6-6z' fill='currentColor' />
+              </svg>
+              {selected.stat}
+            </span>
+          </div>
+        </div>
+      </div>    
+
+      {/* Stats strip */}
+      <div className="relative max-w-7xl mx-auto mt-8 px-6">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
             { k: "Delivery", v: "Days–Weeks" },
@@ -141,10 +185,7 @@ export default function Difference({ id }: { id?: string }) {
           ].map((s) => (
             <div
               key={s.k}
-              className="
-                rounded-full border border-white/10 bg-white/4
-                px-4 py-2 text-center font-body text-sm text-white/80
-              "
+              className="rounded-full border border-white/10 bg-white/4 px-6 py-3 text-center font-body text-sm text-white/80"
             >
               <span className="text-white/60">{s.k}:</span>{" "}
               <span className="text-white">{s.v}</span>
