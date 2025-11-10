@@ -27,10 +27,9 @@ export default function HeroCanvas() {
         <PresentationControls
           global
           snap
-          rotation={[0, 0, 0]}
+          rotation={[0.1, 0.2, 0]}
           polar={[-Math.PI / 8, Math.PI / 8]}
           azimuth={[-Math.PI / 4, Math.PI / 4]}
-          spring={{ mass: 1, tension: 170, friction: 26 }}
         >
           <Float speed={1.2} rotationIntensity={0.25} floatIntensity={0.6}>
             <HeroModel scale={2.4} />
