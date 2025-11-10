@@ -85,7 +85,7 @@ export default function Difference({ id }: { id?: string }) {
         <h2 className="font-heading text-4xl md:text-5xl tracking-tight">
           Averon’s Difference
         </h2>
-        <p className="font-body text-white/70 mt-4">
+        <p className="font-body text-lg text-white/70 mt-4">
           Our systems aren’t plug-and-play scripts — they’re tailored intelligence built for your exact workflow.
         </p>
       </div>
