@@ -28,7 +28,7 @@ export default function Services({ id }: { id?: string }) {
   return (
     <section
       id={id}
-      className="relative w-full py-14 bg-[#05070A] overflow-hidden"
+      className="relative w-full py-20 bg-[#05070A] overflow-hidden"
     >
       {/* Lighting stack (section-unique diagonal composition) */}
       {/* Top-right blue wash */}
