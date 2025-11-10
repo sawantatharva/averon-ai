@@ -22,7 +22,6 @@ export default function Header({ id }: { id?: string }) {
       <header
         className="
           fixed top-0 inset-x-0 z-1000
-          mt-4 sm:mt-0
           pt-[env(safe-area-inset-top)]
           sm:pt-4 md:pt-6 lg:pt-8 xl:pt-10
           bg-transparent
@@ -30,7 +29,6 @@ export default function Header({ id }: { id?: string }) {
         "
       >
         <div className="w-[92%] max-w-7xl mx-auto flex items-center justify-between py-4">
-
           <img
             src="logo.svg"
             alt="Averon AI"
@@ -105,20 +103,24 @@ export default function Header({ id }: { id?: string }) {
         className={`
           fixed inset-0 bg-black/70 backdrop-blur-xl
           transition-opacity duration-300
-          ${open ? "opacity-100 pointer-events-auto z-2000 animate-fade-in" : "opacity-0 pointer-events-none z-20"}
+          ${
+            open
+              ? "opacity-100 pointer-events-auto z-2000 animate-fade-in"
+              : "opacity-0 pointer-events-none z-20"
+          }
         `}
         onClick={() => setOpen(false)}
       />
 
-      {/* Mobile Slide-In Panel */}
+      {/* Mobile Slide-In Panel (Now Dropdown) */}
       <aside
         className={`
-          fixed right-0 top-0 h-full w-[80%] max-w-xs
+          fixed left-0 top-0 w-full
           bg-black/90 backdrop-blur-2xl
-          border-l border-white/10
+          border-b border-white/10
           transition-transform duration-300
-          ${open ? "translate-x-0 z-3000" : "translate-x-full z-3000"}
-          pt-24 px-6 flex flex-col gap-6
+          ${open ? "translate-y-0 z-3000" : "-translate-y-full z-3000"}
+          pt-24 px-6 pb-6 flex flex-col gap-6
         `}
       >
         <button
