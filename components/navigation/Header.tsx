@@ -32,7 +32,7 @@ export default function Header({ id }: { id?: string }) {
         <div className="w-[92%] max-w-7xl mx-auto flex items-center justify-between py-4">
 
           <img
-            src="/logo.svg"
+            src="logo.svg"
             alt="Averon AI"
             className="
               h-10 md:h-12 w-auto
