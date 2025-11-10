@@ -32,14 +32,44 @@ export default function Footer({ id }: { id?: string }) {
 
           {/* Navigation */}
           <div className="flex flex-wrap gap-6 text-white/60 font-body text-base">
-            {/* Removed: About Us */}
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition">Terms & Conditions</a>
+            <a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a>
+            <a href="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</a>
           </div>
         </div>
 
         {/* Divider */}
         <div className="h-px bg-white/10 my-12" />
+
+        {/* CONTACT SECTION */}
+        <div className="flex flex-col gap-5 text-white/70 font-body text-sm mb-12">
+
+          {/* Phone Numbers */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-8 gap-3">
+            <div className="flex items-center gap-2">
+              <img src="/icons/phone.svg" className="h-4 w-4 opacity-80" />
+              <span>+91-9987710419</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <img src="/icons/phone.svg" className="h-4 w-4 opacity-80" />
+              <span>+91-9930991902</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <img src="/icons/phone.svg" className="h-4 w-4 opacity-80" />
+              <span>+91-9768416446</span>
+            </div>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-center gap-2">
+            <img src="/icons/email.svg" className="h-4 w-4 opacity-80" />
+            <a
+              href="mailto:hello@averonai.com"
+              className="hover:text-white transition"
+            >
+              hello@averonai.com
+            </a>
+          </div>
+        </div>
 
         {/* BOTTOM ROW */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
