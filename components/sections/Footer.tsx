@@ -77,10 +77,6 @@ export default function Footer({ id }: { id?: string }) {
           <p className="text-white/50 font-body text-sm">
             © {new Date().getFullYear()} Averon AI. All rights reserved.
           </p>
-
-          <p className="text-white/50 font-body text-sm">
-            Designed with ❤️ in Mumbai.
-          </p>
         </div>
       </div>
     </footer>
