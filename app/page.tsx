@@ -9,6 +9,7 @@ import FAQs from "@/components/sections/FAQs";
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/sections/Footer";
 import BackToTop from "@/components/ui/BackToTop";
+import Chatbot from "@/components/Chatbot";
 
 /* Main landing page composition */
 export default function Home() {
@@ -51,6 +52,8 @@ export default function Home() {
 
       <Footer />
       <BackToTop />
+
+      <Chatbot />
     </main>
   );
 }
