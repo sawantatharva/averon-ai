@@ -76,7 +76,9 @@ export default function Header({ id }: { id?: string }) {
 
           {/* DESKTOP CTA */}
           <a
-            href="#"
+            href="https://tally.so/r/kdaXJj"
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               hidden xl:flex
               px-8 py-4 rounded-full
@@ -169,7 +171,9 @@ export default function Header({ id }: { id?: string }) {
 
         {/* DRAWER CTA */}
         <a
-          href="#"
+          href="https://tally.so/r/kdaXJj"
+          target="_blank"
+          rel="noopener noreferrer"
           className="
             mt-6 px-6 py-4 rounded-full text-center
             bg-white/5 border border-white/10

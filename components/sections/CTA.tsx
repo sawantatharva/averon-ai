@@ -50,7 +50,9 @@ export default function CTA({ id }: { id?: string }) {
 
         {/* CTA button */}
         <Link
-          href="#call"
+          href="https://tally.so/r/kdaXJj"
+          target="_blank"
+          rel="noopener noreferrer"
           className="
             inline-flex items-center justify-center
             px-10 py-4 rounded-full

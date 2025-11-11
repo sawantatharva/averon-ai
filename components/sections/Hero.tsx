@@ -115,7 +115,9 @@ export default function Hero({ id }: { id?: string }) {
             "
           >
             <a
-              href="#cta"
+              href="https://tally.so/r/kdaXJj"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 font-body px-7 sm:px-8 py-3.5 rounded-full
                 bg-white text-black font-medium
